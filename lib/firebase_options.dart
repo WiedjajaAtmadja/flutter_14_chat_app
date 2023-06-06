@@ -17,16 +17,16 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for ios - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return ios;
       case TargetPlatform.macOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for macos - '
@@ -49,20 +49,21 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBbiYp5wFd-JWRS5Vu0yF8AemsRindl7nY',
-    appId: '1:1074407606402:web:cd60671b8d71e4d7de0c9b',
-    messagingSenderId: '1074407606402',
-    projectId: 'flutter-chat-app-5c528',
-    authDomain: 'flutter-chat-app-5c528.firebaseapp.com',
-    storageBucket: 'flutter-chat-app-5c528.appspot.com',
+  static const FirebaseOptions android = FirebaseOptions(
+    apiKey: 'AIzaSyBOMmw4cSgll9muUD_uaFu-0F-R4r9CD1Y',
+    appId: '1:523980747506:android:e88eee0f164ebdb75f166b',
+    messagingSenderId: '523980747506',
+    projectId: 'flutter-chat-app-42c5e',
+    storageBucket: 'flutter-chat-app-42c5e.appspot.com',
   );
 
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAqQn6Ew5gG5Cdxfjb4hV1XMdTqsyYuLLc',
-    appId: '1:1074407606402:android:a1bd48b82b278ee2de0c9b',
-    messagingSenderId: '1074407606402',
-    projectId: 'flutter-chat-app-5c528',
-    storageBucket: 'flutter-chat-app-5c528.appspot.com',
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyAQ-0vC0x8sw8DBUoCuiGiLJZ2deK_IQ1Q',
+    appId: '1:523980747506:ios:160f9d084cab3ac15f166b',
+    messagingSenderId: '523980747506',
+    projectId: 'flutter-chat-app-42c5e',
+    storageBucket: 'flutter-chat-app-42c5e.appspot.com',
+    iosClientId: '523980747506-1fd8e8pg1ld5dvnn854b2pvnt6vjm9vd.apps.googleusercontent.com',
+    iosBundleId: 'com.example.chatApp',
   );
 }
